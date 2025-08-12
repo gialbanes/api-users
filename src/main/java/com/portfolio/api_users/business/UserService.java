@@ -32,7 +32,6 @@ public class UserService {
                 .name(user.getName() != null ? user.getName() : userEntity.getName())
                 .email(user.getEmail() != null ? user.getEmail() : userEntity.getEmail())
                 .password(user.getPassword() != null ? user.getPassword() : userEntity.getPassword())
-                .dateBirth(user.getDateBirth() != null ? user.getDateBirth() : userEntity.getDateBirth())
                 .build();
         repository.save(updatedUser);
     }
