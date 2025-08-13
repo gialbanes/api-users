@@ -43,4 +43,8 @@ public class CategoryService {
                 .build();
         repository.save(updatedCategory);
     }
+
+    public void deleteCategoryById (Long id){
+        repository.deleteById(id);
+    }
 }
