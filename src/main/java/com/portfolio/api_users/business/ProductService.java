@@ -4,6 +4,8 @@ import com.portfolio.api_users.infrastructure.entity.Product;
 import com.portfolio.api_users.infrastructure.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
     private final ProductRepository repository;
@@ -41,5 +43,9 @@ public class ProductService {
 
     public void deleteProductById(Long id){
         repository.deleteById(id);
+    }
+
+    public List<Product> findAll (){
+        return repository.findAll();
     }
 }
