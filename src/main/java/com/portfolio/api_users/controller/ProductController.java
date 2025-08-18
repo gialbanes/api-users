@@ -37,4 +37,9 @@ public class ProductController {
         productService.deleteProductById(id);
         return ResponseEntity.ok().build();
     }
+
+    public ResponseEntity<Product> getAllProducts (){
+        productService.findAll();
+        return ResponseEntity.ok().build();
+    }
 }

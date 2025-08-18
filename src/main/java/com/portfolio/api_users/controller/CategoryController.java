@@ -37,4 +37,9 @@ public class CategoryController {
         categoryService.deleteCategoryById(id);
         return  ResponseEntity.ok().build();
     }
+
+    public ResponseEntity<Category> getAllCategory (){
+        categoryService.findAllCategory();
+        return ResponseEntity.ok().build();
+    }
 }
