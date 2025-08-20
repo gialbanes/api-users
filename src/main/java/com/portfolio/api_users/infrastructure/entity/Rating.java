@@ -1,5 +1,6 @@
 package com.portfolio.api_users.infrastructure.entity;
 
+import com.portfolio.api_users.infrastructure.entity.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
