@@ -1,6 +1,6 @@
 package com.portfolio.api_users.business;
 
-import com.portfolio.api_users.infrastructure.entity.User;
+import com.portfolio.api_users.infrastructure.entity.user.User;
 import com.portfolio.api_users.infrastructure.repository.UserRepository;
 import org.springframework.stereotype.Service;
 

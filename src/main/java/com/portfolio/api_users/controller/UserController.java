@@ -1,7 +1,7 @@
 package com.portfolio.api_users.controller;
 
 import com.portfolio.api_users.business.UserService;
-import com.portfolio.api_users.infrastructure.entity.User;
+import com.portfolio.api_users.infrastructure.entity.user.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
