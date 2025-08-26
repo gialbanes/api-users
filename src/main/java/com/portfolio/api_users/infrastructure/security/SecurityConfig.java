@@ -3,6 +3,10 @@ package com.portfolio.api_users.infrastructure.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+<<<<<<< Updated upstream
+=======
+import org.springframework.security.authentication.AuthenticationManager;
+>>>>>>> Stashed changes
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -21,19 +25,29 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers(HttpMethod.POST, "/products").hasRole("ADMIN")
-                .anyRequest().authenticated()
+                    .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/products").hasRole("ADMIN")
+                    .anyRequest().authenticated()
             ) 
             .build();
     }
+<<<<<<< Updated upstream
 
     @Bean
     public AuthenticationManager authenticationManager(authenticationConfiguration authenConfiguration) throws Exception{
+=======
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
+>>>>>>> Stashed changes
         return authenticationConfiguration.getAuthenticationManager();
     }
 
     @Bean
+<<<<<<< Updated upstream
     // configuração de hash de senha
+=======
+>>>>>>> Stashed changes
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
