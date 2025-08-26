@@ -1,8 +1,9 @@
 package com.portfolio.api_users.business;
 
+import org.springframework.stereotype.Service;
+
 import com.portfolio.api_users.infrastructure.entity.user.User;
 import com.portfolio.api_users.infrastructure.repository.UserRepository;
-import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
@@ -29,12 +30,11 @@ public class UserService {
 
         User updatedUser = User.builder()
                 .id(userEntity.getId())
-                .name(user.getName() != null ? user.getName() : userEntity.getName())
                 .email(user.getEmail() != null ? user.getEmail() : userEntity.getEmail())
                 .password(user.getPassword() != null ? user.getPassword() : userEntity.getPassword())
                 .build();
         repository.save(updatedUser);
-    }
+    }   
 
     public void deleteUser (Long id){
         repository.deleteById(id);
