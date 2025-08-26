@@ -1,9 +1,5 @@
 package com.portfolio.api_users.controller;
 
-import com.portfolio.api_users.dto.request.RegisterDTO;
-import com.portfolio.api_users.infrastructure.entity.user.User;
-import com.portfolio.api_users.infrastructure.repository.UserRepository;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portfolio.api_users.dto.request.AuthenticationDTO;
+import com.portfolio.api_users.dto.request.RegisterDTO;
+import com.portfolio.api_users.infrastructure.entity.user.User;
+import com.portfolio.api_users.infrastructure.repository.UserRepository;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/auth")
