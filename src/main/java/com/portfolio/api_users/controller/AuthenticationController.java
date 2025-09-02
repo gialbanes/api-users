@@ -1,5 +1,7 @@
 package com.portfolio.api_users.controller;
 
+import com.portfolio.api_users.business.TokenService;
+import com.portfolio.api_users.dto.response.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,19 +29,26 @@ public class AuthenticationController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping("/login")
-    public ResponseEntity<Void> login(@RequestBody @Valid AuthenticationDTO data) {
-        var usernamePassword = new UsernamePasswordAuthenticationToken(data.getEmail(), data.getPassword());
+    public ResponseEntity<LoginResponse> login(@RequestBody @Valid AuthenticationDTO data) {
+        // a classe UsernamePasswordAuthenticationToken vem do spring security; nesse caso, estou juntando o email e senha como uma única variável para ser validado pelo authenticationManager que busca o usuário no UserRepository e compara as senhas
+        var usernamePassword = new UsernamePasswordAuthenticationToken(data.email(), data.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
-        return ResponseEntity.ok().build();
+
+        var token = tokenService.generateToken((User) auth.getPrincipal());
+        return ResponseEntity.ok(new LoginResponse(token));
     }
 
     @PostMapping("/register")
     public ResponseEntity<Void> register (@RequestBody @Valid RegisterDTO data){
-        if (this.userRepository.findByEmail(data.getEmail()) != null) return ResponseEntity.badRequest().build();
+        if (this.userRepository.findByEmail(data.email()) != null) return ResponseEntity.badRequest().build();
 
-        String encryptedPassword = new BCryptPasswordEncoder().encode(data.getPassword());
-        User newUser = new User(data.getEmail(), encryptedPassword, data.getRole());
+        // criptografa a senha antes de salvar no banco
+        String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
+        User newUser = new User(data.email(), encryptedPassword, data.role());
 
         this.userRepository.save(newUser);
 
