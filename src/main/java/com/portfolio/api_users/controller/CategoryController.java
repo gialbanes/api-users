@@ -1,9 +1,16 @@
 package com.portfolio.api_users.controller;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.portfolio.api_users.business.CategoryService;
 import com.portfolio.api_users.infrastructure.entity.Category;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/category")
@@ -24,12 +31,6 @@ public class CategoryController {
     public ResponseEntity<Category> getCategory (@RequestParam Long id){
          categoryService.getCategoryById(id);
          return ResponseEntity.ok().build();
-    }
-
-    @PutMapping
-    public ResponseEntity<Void> update (@RequestParam Long id, @RequestBody Category category){
-        categoryService.updateCategoryById(id, category);
-        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping
