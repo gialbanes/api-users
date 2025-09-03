@@ -37,7 +37,44 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+
+                        // para usuários 
+                        .requestMatchers(HttpMethod.GET, "/users").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/users").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/users").hasRole("ADMIN")
+
+                        // para produtos
                         .requestMatchers(HttpMethod.POST, "/products").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/products").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/products").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/products").permitAll()
+
+                        // para itens do carrinho 
+                        .requestMatchers(HttpMethod.POST, "/cartItem").hasRole("CUSTOMER")
+                        .requestMatchers(HttpMethod.GET, "/cartItem").hasRole("CUSTOMER")
+                        .requestMatchers(HttpMethod.DELETE, "/cartItem").hasRole("CUSTOMER")
+                        .requestMatchers(HttpMethod.PUT, "/cartItem").hasRole("CUSTOMER")
+
+                        // para lista de favoritos
+                        .requestMatchers(HttpMethod.POST, "/favorite").hasRole("CUSTOMER")
+                        .requestMatchers(HttpMethod.GET, "/favorite").hasRole("CUSTOMER")
+                        .requestMatchers(HttpMethod.DELETE, "/favorite").hasRole("CUSTOMER")
+
+                        // para avaliação 
+                        .requestMatchers(HttpMethod.POST, "/rating").hasRole("CUSTOMER")
+                        .requestMatchers(HttpMethod.GET, "/rating").permitAll()
+
+                        // para categorias
+                        .requestMatchers(HttpMethod.POST, "/category").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/category").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/category").hasRole("ADMIN")
+
+                        // para carrinho 
+                        .requestMatchers(HttpMethod.POST, "/cart").hasRole("CUSTOMER")
+                        .requestMatchers(HttpMethod.GET, "/cart").hasRole("CUSTOMER")
+                        .requestMatchers(HttpMethod.PUT, "/cart").hasRole("CUSTOMER")
+                        .requestMatchers(HttpMethod.DELETE, "/cart").hasRole("CUSTOMER")
+
                         // só preciso que esteja autenticado independente da role; para estar autenticado, precisa de um login validado
                         .anyRequest().authenticated()
                 )
