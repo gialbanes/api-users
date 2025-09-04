@@ -1,7 +1,5 @@
 package com.portfolio.api_users.controller;
 
-import com.portfolio.api_users.business.TokenService;
-import com.portfolio.api_users.dto.response.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,10 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.portfolio.api_users.dto.request.AuthenticationDTO;
-import com.portfolio.api_users.dto.request.RegisterDTO;
-import com.portfolio.api_users.infrastructure.entity.user.User;
-import com.portfolio.api_users.infrastructure.repository.UserRepository;
+import com.portfolio.api_users.DTOs.request.AuthenticationDTO;
+import com.portfolio.api_users.DTOs.request.RegisterDTO;
+import com.portfolio.api_users.DTOs.response.LoginResponse;
+import com.portfolio.api_users.entity.user.User;
+import com.portfolio.api_users.repository.UserRepository;
+import com.portfolio.api_users.service.TokenService;
 
 import jakarta.validation.Valid;
 

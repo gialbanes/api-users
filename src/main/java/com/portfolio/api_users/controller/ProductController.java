@@ -1,7 +1,8 @@
 package com.portfolio.api_users.controller;
 
-import com.portfolio.api_users.business.ProductService;
-import com.portfolio.api_users.infrastructure.entity.Product;
+import com.portfolio.api_users.entity.Product;
+import com.portfolio.api_users.service.ProductService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

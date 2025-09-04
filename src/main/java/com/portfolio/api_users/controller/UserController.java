@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.portfolio.api_users.business.UserService;
-import com.portfolio.api_users.infrastructure.entity.user.User;
+import com.portfolio.api_users.entity.user.User;
+import com.portfolio.api_users.service.UserService;
 
 @RestController
 @RequestMapping("/users")

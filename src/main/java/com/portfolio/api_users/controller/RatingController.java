@@ -1,7 +1,8 @@
 package com.portfolio.api_users.controller;
 
-import com.portfolio.api_users.business.RatingService;
-import com.portfolio.api_users.infrastructure.entity.Rating;
+import com.portfolio.api_users.entity.Rating;
+import com.portfolio.api_users.service.RatingService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,8 @@
 package com.portfolio.api_users.controller;
 
-import com.portfolio.api_users.business.CartItemService;
-import com.portfolio.api_users.infrastructure.entity.CartItem;
+import com.portfolio.api_users.entity.CartItem;
+import com.portfolio.api_users.service.CartItemService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

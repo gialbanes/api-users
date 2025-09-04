@@ -1,7 +1,8 @@
 package com.portfolio.api_users.controller;
 
-import com.portfolio.api_users.business.FavoriteService;
-import com.portfolio.api_users.infrastructure.entity.Favorite;
+import com.portfolio.api_users.entity.Favorite;
+import com.portfolio.api_users.service.FavoriteService;
+
 import jdk.javadoc.doclet.Reporter;
 import lombok.Getter;
 import org.springframework.http.ResponseEntity;

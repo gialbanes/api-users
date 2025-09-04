@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.portfolio.api_users.business.CategoryService;
-import com.portfolio.api_users.infrastructure.entity.Category;
+import com.portfolio.api_users.entity.Category;
+import com.portfolio.api_users.service.CategoryService;
 
 @RestController
 @RequestMapping("/category")
