@@ -1,7 +1,10 @@
 package com.portfolio.api_users.controller;
 
 import com.portfolio.api_users.entity.Cart;
+import com.portfolio.api_users.entity.Rating;
 import com.portfolio.api_users.service.CartService;
+
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +25,9 @@ public class CartController {
     }
 
     @GetMapping
-    public ResponseEntity<Cart> getAllCart (){
-        cartService.findAllCart();
-        return ResponseEntity.ok().build();
+    public ResponseEntity<List<Cart>> getAllCart (){
+        List<Cart> allCarts = cartService.findAllCart();
+        return ResponseEntity.ok(allCarts);
     }
 
     @PutMapping

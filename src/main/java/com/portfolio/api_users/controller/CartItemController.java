@@ -32,4 +32,10 @@ public class CartItemController {
         cartItemService.updateCartItemById(id, cartItem);
         return ResponseEntity.ok().build();
     }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteCart (@RequestParam Long id){
+        cartItemService.deleteCartItemById(id);
+        return ResponseEntity.ok().build();
+    }
 }

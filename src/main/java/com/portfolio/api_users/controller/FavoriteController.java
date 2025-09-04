@@ -1,10 +1,14 @@
 package com.portfolio.api_users.controller;
 
 import com.portfolio.api_users.entity.Favorite;
+import com.portfolio.api_users.entity.Rating;
 import com.portfolio.api_users.service.FavoriteService;
 
 import jdk.javadoc.doclet.Reporter;
 import lombok.Getter;
+
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,9 +28,9 @@ public class FavoriteController {
     }
 
     @GetMapping
-    public ResponseEntity<Favorite> getAllFavorite (){
-        favoriteService.getAllFavorite();
-        return ResponseEntity.ok().build();
+    public ResponseEntity<List<Favorite>> getAllFavorite (){
+        List<Favorite> allFavorite = favoriteService.getAllFavorite();
+        return ResponseEntity.ok(allFavorite);
     }
 
     @DeleteMapping

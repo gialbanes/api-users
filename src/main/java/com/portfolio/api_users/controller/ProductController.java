@@ -1,7 +1,10 @@
 package com.portfolio.api_users.controller;
 
+import com.portfolio.api_users.entity.Favorite;
 import com.portfolio.api_users.entity.Product;
 import com.portfolio.api_users.service.ProductService;
+
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +24,7 @@ public class ProductController {
          return ResponseEntity.ok().build();
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<Product> getProduct (@RequestParam Long id){
         productService.findProductById(id);
         return ResponseEntity.ok().build();
@@ -39,8 +42,9 @@ public class ProductController {
         return ResponseEntity.ok().build();
     }
 
-    public ResponseEntity<Product> getAllProducts (){
-        productService.findAll();
-        return ResponseEntity.ok().build();
+    @GetMapping
+    public ResponseEntity<List<Product>> getAllProducts (){
+        List<Product> allProducts = productService.findAll();
+        return ResponseEntity.ok(allProducts);
     }
 }

@@ -6,6 +6,8 @@ import com.portfolio.api_users.service.RatingService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/rating")
 public class RatingController {
@@ -21,14 +23,15 @@ public class RatingController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<Rating> getRatingById (@RequestParam Long id){
         ratingService.getRatingById(id);
         return ResponseEntity.ok().build();
     }
 
-    public ResponseEntity<Rating> getAllRating (){
-        ratingService.getAllRating();
-        return ResponseEntity.ok().build();
+    @GetMapping
+    public ResponseEntity<List<Rating>> getAllRating (){
+        List<Rating> allRatings = ratingService.getAllRating();
+        return ResponseEntity.ok(allRatings);
     }
 }
