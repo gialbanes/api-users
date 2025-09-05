@@ -108,7 +108,6 @@ Para rodar este projeto em sua máquina local, você precisará ter instalado:
 
 - Java Development Kit (JDK) 17 ou superior
 - Apache Maven
-- Docker (recomendado para o banco de dados) ou uma instância local do PostgreSQL
 
 ---
 
