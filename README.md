@@ -12,6 +12,18 @@ Este é um projeto pessoal de back-end desenvolvido para demonstrar habilidades 
 - Geração de tokens JWT para acesso seguro às rotas
 - Permissões controladas por perfis: `ROLE_ADMIN` e `ROLE_CUSTOMER`
 
+### 📚 Boas Práticas de Código
+
+- Utilização de DTOs (Data Transfer Objects) para separar a camada de persistência da camada de comunicação com o cliente
+- Arquitetura em camadas (`Controller`, `Service`, `Repository`) para manter a separação de responsabilidades
+- Uso de Annotations e Injeção de Dependências do Spring para um código limpo e desacoplado
+
+### 📈 Validação de Dados
+
+- Validação de dados de entrada com `@Valid` para garantir a integridade das informações
+
+---
+
 ### 📦 Gerenciamento de Produtos
 
 - Endpoints para criar, editar, listar e excluir produtos
@@ -76,17 +88,7 @@ GET     /rating         → Lista avaliações
 POST    /rating         → Cria nova avaliação
 ```
 
-### 📚 Boas Práticas de Código
-
-- Utilização de DTOs (Data Transfer Objects) para separar a camada de persistência da camada de comunicação com o cliente
-- Arquitetura em camadas (`Controller`, `Service`, `Repository`) para manter a separação de responsabilidades
-- Uso de Annotations e Injeção de Dependências do Spring para um código limpo e desacoplado
-
-### 📈 Validação de Dados
-
-- Validação de dados de entrada com `@Valid` para garantir a integridade das informações
-
----
+--- 
 
 ## 🛠️ Tecnologias Utilizadas
 
