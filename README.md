@@ -134,7 +134,7 @@ spring.datasource.password=sua_senha
 ## 📂 Estrutura do Projeto
 
 ```text
-com.portfolio.api_users
+com.portfolio.e-commerce
 ├── controller   # Camada de entrada (HTTP)
 ├── service      # Lógica de negócio
 ├── repository   # Persistência de dados
